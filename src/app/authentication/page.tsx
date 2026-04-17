@@ -2,74 +2,82 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function Authentication() {
   return (
-    <Tabs defaultValue="overview" className="w-100">
-      <TabsList>
-        <TabsTrigger value="overview">Overview</TabsTrigger>
-        <TabsTrigger value="analytics">Analytics</TabsTrigger>
-      </TabsList>
-      <TabsContent value="overview">
-        <Card>
-          <CardHeader>
-            <CardTitle>Overview</CardTitle>
-            <CardDescription>
-              View your key metrics and recent project activity. Track progress
-              across all your active projects.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="text-muted-foreground text-sm">
-            You have 12 active projects and 3 pending tasks.
-          </CardContent>
-        </Card>
-      </TabsContent>
-      <TabsContent value="analytics">
-        <Card>
-          <CardHeader>
-            <CardTitle>Analytics</CardTitle>
-            <CardDescription>
-              Track performance and user engagement metrics. Monitor trends and
-              identify growth opportunities.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="text-muted-foreground text-sm">
-            Page views are up 25% compared to last month.
-          </CardContent>
-        </Card>
-      </TabsContent>
-      <TabsContent value="reports">
-        <Card>
-          <CardHeader>
-            <CardTitle>Reports</CardTitle>
-            <CardDescription>
-              Generate and download your detailed reports. Export data in
-              multiple formats for analysis.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="text-muted-foreground text-sm">
-            You have 5 reports ready and available to export.
-          </CardContent>
-        </Card>
-      </TabsContent>
-      <TabsContent value="settings">
-        <Card>
-          <CardHeader>
-            <CardTitle>Settings</CardTitle>
-            <CardDescription>
-              Manage your account preferences and options. Customize your
-              experience to fit your needs.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="text-muted-foreground text-sm">
-            Configure notifications, security, and themes.
-          </CardContent>
-        </Card>
-      </TabsContent>
-    </Tabs>
+    <div className="flex w-full max-w-sm flex-col gap-6 p-5">
+      <Tabs defaultValue="sign-in">
+        <TabsList>
+          <TabsTrigger value="sign-in">Entrar</TabsTrigger>
+          <TabsTrigger value="sign-up">Criar conta</TabsTrigger>
+        </TabsList>
+        <TabsContent value="sign-in">
+          <Card>
+            <CardHeader>
+              <CardTitle>Entrar</CardTitle>
+              <CardDescription>Faça login para continuar.</CardDescription>
+            </CardHeader>
+            <CardContent className="grid gap-6">
+              <div className="grid gap-3">
+                <Label htmlFor="email">Email</Label>
+                <Input id="email" placeholder="Digite seu e-mail" />
+              </div>
+
+              <div className="grid gap-3">
+                <Label htmlFor="password">Senha</Label>
+                <Input
+                  id="password"
+                  type="password"
+                  placeholder="Digite sua senha"
+                />
+              </div>
+            </CardContent>
+            <CardFooter>
+              <Button>Entrar</Button>
+            </CardFooter>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="sign-up">
+          <Card>
+            <CardHeader>
+              <CardTitle>Criar conta</CardTitle>
+              <CardDescription>Crie uma conta para continuar.</CardDescription>
+            </CardHeader>
+            <CardContent className="grid gap-6">
+              <div className="grid gap-3">
+                <Label htmlFor="name">Nome</Label>
+                <Input id="name" placeholder="Digite seu nome" />
+              </div>
+
+              <div className="grid gap-3">
+                <Label htmlFor="email">E-mail</Label>
+                <Input id="email" placeholder="Digite seu e-mail" />
+              </div>
+
+              <div className="grid gap-3">
+                <Label htmlFor="password">Senha</Label>
+                <Input
+                  id="password"
+                  type="password"
+                  placeholder="Digite seu senha"
+                />
+              </div>
+            </CardContent>
+            <CardFooter>
+              <Button>Criar conta</Button>
+            </CardFooter>
+          </Card>
+        </TabsContent>
+      </Tabs>
+    </div>
   );
 }
